@@ -17,14 +17,27 @@
             background: var(--black);
             font-family: Verdana, monospace;
         }
-        section {
+        main {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-items: center;
+        }
+        #game{
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+        }
+        #result{
+            display: none;
+            flex-direction: column;
+            width: 500px;
         }
         time {
             color: var(--yellow);
+        }
+        .wordWrapper {
+            padding-top: 5px;
         }
         input {
             pointer-events: none;
@@ -34,7 +47,6 @@
             flex-wrap: wrap;
             gap: 3px 8px;
             margin: 0;
-            width: 400px;
         }
         word{
             border-bottom: 1.5px solid transparent;
@@ -74,35 +86,33 @@
             0%, 25%{opacity: 1;}
             75%{opacity: 0;}
         }
-        #game{
-            display: flex;
-        }
-        #result{
-            display: none;
-        }
         h2 {
             font-weight: 4000;
             opacity: .4;
             margin: 0;
+            padding-top: 10px;
             font-size: 16px;
         }
         h3 {
             font-weight: 4000;
             opacity: .4;
             margin: 0;
+            padding-top: 5px;
             font-size: 24px;
             color: var(--yellow);
         }
         button {
             background: transparent;
             border: 0;
-            margin-top: 32px;
+            margin-top: 10px;
+            margin-left: 10px;
             padding: 8px;
             opacity: 4;
             display: inline-block;
             transition: opacity 0.3s ease-in-out, trasnform 0.3s ease-in-out;
             cursor: pointer;
             border-radius: 16px;
+            width: 10%;
 
             &:hover {
                 background: #444;
@@ -147,7 +157,7 @@
     const $accuracy = $result.querySelector('#results-accuracy');
     const $repeatButton = document.querySelector('#repeat-button');
     
-    const INITIAL_TIME = 50;
+    const INITIAL_TIME = 30;
 
     const TEXT = `mirando el verdadero peligro no es que las computadoras comenzaran a pensar como los hombres,
     sino que los hombres comenzaran a pensar como las computadoras`;
