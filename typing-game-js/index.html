@@ -39,6 +39,8 @@
         word{
             border-bottom: 1.5px solid transparent;
             transition: border-color 0.3s ease-in-out;
+            float: left;
+            margin-right: 5px;
 
             &.marked{
                 border-color: var(--red);
@@ -145,7 +147,7 @@
     const $accuracy = $result.querySelector('#results-accuracy');
     const $repeatButton = document.querySelector('#repeat-button');
     
-    const INITIAL_TIME = 10;
+    const INITIAL_TIME = 50;
 
     const TEXT = `mirando el verdadero peligro no es que las computadoras comenzaran a pensar como los hombres,
     sino que los hombres comenzaran a pensar como las computadoras`;
