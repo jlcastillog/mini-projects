@@ -10,11 +10,92 @@
             --green: #43a047;
             --yellow: #e1bd3b;
             --grey: #757575;
+            --darkgrey: #504c4c;
+            --darkdarkgrey:rgb(61, 55, 55);
             --black: #000000;
             --timelime: #252339;
         }
         body {
             color: white;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .title{
+            font-size: 35px;
+            font-weight: 1000;
+            font-family: 'Times New Roman', Times, serif;
+            border-bottom: 1px solid white;
+            padding-bottom: 10px;
+        }
+        .word-input{
+            display: flex;
+            flex-direction: column;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .word-input div {
+            height: 100%;
+            display: flex;
+        }
+        .word-input letter{
+            display: inline-block;
+            text-align: center;
+            line-height: 60px;
+            font-size: 28px;
+            font-weight: 800;
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
+            margin: 3px;
+            border: 2px solid #413f3f;
+            &.input-hit{
+                background-color: var(--green);
+            }
+            &.input-semi-hit{
+                background-color: var(--yellow);
+            }
+            &.input-fail{
+                background-color: var(--darkgrey);
+            }
+        }
+        .keyboard{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .keyboard button{
+            font-weight: 600;
+            font-size: 16px;
+            width: 45px;
+            height: 55px;
+            margin: 2px;
+            border: 0px;
+            padding: 0px;
+            border-radius: 5px;
+            background-color: var(--grey);
+            &:hover{
+                background-color: var(--darkgrey);
+            }
+            &.key-hit{
+                background-color: var(--green);
+            }
+            &.key-semi-hit{
+                background-color: var(--yellow);
+            }
+            &.key-fail{
+                background-color: var(--darkdarkgrey);
+            }
+        }
+        #key-enter{
+            width: 70px;
+            font-size: 12px;
+        }
+        #key-backspace{
+            width: 90px; 
+            font-size: 12px;
         }
     </style>
 </head>
@@ -24,11 +105,270 @@
             Wordle - Word of the day
         </section>
         <section class="word-input">
-
+            <div id="word-attemp-1">
+                <letter id="letter-1-1"></letter>
+                <letter id="letter-1-2"></letter>
+                <letter id="letter-1-3"></letter>
+                <letter id="letter-1-4"></letter>
+                <letter id="letter-1-5"></letter>
+            </div>
+            <div id="word-attemp-2">
+                <letter id="letter-2-1"></letter>
+                <letter id="letter-2-2"></letter>
+                <letter id="letter-2-3"></letter>
+                <letter id="letter-2-4"></letter>
+                <letter id="letter-2-5"></letter>
+            </div>
+            <div id="word-attemp-3">
+                <letter id="letter-3-1"></letter>
+                <letter id="letter-3-2"></letter>
+                <letter id="letter-3-3"></letter>
+                <letter id="letter-3-4"></letter>
+                <letter id="letter-3-5"></letter>
+            </div>
+            <div id="word-attemp-4">
+                <letter id="letter-4-1"></letter>
+                <letter id="letter-4-2"></letter>
+                <letter id="letter-4-3"></letter>
+                <letter id="letter-4-4"></letter>
+                <letter id="letter-4-5"></letter>
+            </div>
+            <div id="word-attemp-5">
+                <letter id="letter-5-1"></letter>
+                <letter id="letter-5-2"></letter>
+                <letter id="letter-5-3"></letter>
+                <letter id="letter-5-4"></letter>
+                <letter id="letter-5-5"></letter>
+            </div>
+            <div id="word-attemp-6">
+                <letter id="letter-6-1"></letter>
+                <letter id="letter-6-2"></letter>
+                <letter id="letter-6-3"></letter>
+                <letter id="letter-6-4"></letter>
+                <letter id="letter-6-5"></letter>
+            </div>
         </section>
         <section class="keyboard">
-
+            <div class="keys-line-1">
+                <button id="key-q">
+                    Q
+                </button>
+                <button id="key-w">
+                    W
+                </button>
+                <button id="key-e">
+                    E
+                </button>
+                <button id="key-r">
+                    R
+                </button>
+                <button id="key-t">
+                    T
+                </button>
+                <button id="key-y">
+                    Y
+                </button>
+                <button id="key-u">
+                    U
+                </button>
+                <button id="key-i">
+                    I
+                </button>
+                <button id="key-o">
+                    O
+                </button>
+                <button id="key-p">
+                    P
+                </button>
+            </div>
+            <div class="keys-line-2">
+                <button id="key-a">
+                    A
+                </button>
+                <button id="key-s">
+                    S
+                </button>
+                <button id="key-d">
+                    D
+                </button>
+                <button id="key-f">
+                    F
+                </button>
+                <button id="key-g">
+                    G
+                </button>
+                <button id="key-h">
+                    H
+                </button>
+                <button id="key-j">
+                    J
+                </button>
+                <button id="key-k">
+                    K
+                </button>
+                <button id="key-l">
+                    L
+                </button>
+            </div>
+            <div class="keys-line-3">
+                <button id="key-enter">
+                    ENTER
+                </button>
+                <button id="key-z">
+                    Z
+                </button>
+                <button id="key-x">
+                    X
+                </button>
+                <button id="key-c">
+                    C
+                </button>
+                <button id="key-v">
+                    V
+                </button>
+                <button id="key-b">
+                    B
+                </button>
+                <button id="key-n">
+                    N
+                </button>
+                <button id="key-m">
+                    M
+                </button>
+                <button id="key-backspace">
+                    BACKSPACE
+                </button>
+            </div>
         </section>
     </main>
 </body>
+<script type="module">
+    import { words as ARRAYS_OF_WORDS } from './words.js';
+
+    let WORD = ""; // TODO: Get from a source
+    let nWordAttemp = 1;
+    let nLetter = 1;
+    let lettersInWord = [];
+
+    const $wordInput = document.querySelector(".word-input");
+    const $keyboard = document.querySelector(".keyboard");
+    
+    initGame();
+    initEvents();
+
+    function initGame(){
+        nWordAttemp = 1;
+        nLetter = 1;
+        lettersInWord = [];
+
+        let wordsLengthFive = ARRAYS_OF_WORDS.filter(word => word.length == 5);
+        WORD = wordsLengthFive[getRandomInt(wordsLengthFive.length - 1)].toUpperCase();
+
+        console.log(WORD);
+
+        lettersInWord = WORD.split('');
+
+        const $allLetters = document.querySelectorAll('letter');
+
+        Array.from($allLetters).map($letter => {
+            $letter.innerText = '';
+            $letter.classList.remove('input-hit','input-semi-hit','input-fail');
+        });
+
+        const $allKeys = document.querySelectorAll('button');
+
+        Array.from($allKeys ).map($key => {
+            $key.classList.remove('key-hit','key-semi-hit','key-fail');
+        });
+    }
+
+    function initEvents(){
+        var $inputKeys = $keyboard.querySelectorAll("button");
+
+        Array.from($inputKeys).map($button => {
+            $button.addEventListener('click', onClickKey);
+        });
+    }
+
+    function onClickKey(event){
+        const $currentWordAttemp = document.querySelector(`#word-attemp-${nWordAttemp}`)
+        const $currentLetter = $currentWordAttemp.querySelector(`#letter-${nWordAttemp}-${nLetter}`);
+        const key = event.srcElement.innerText;
+
+        if (key === "ENTER") {
+            if (nLetter === 6 && nWordAttemp < 7) {
+                checkWord();
+            }
+        }
+        else if (key === "BACKSPACE") {
+            if (nLetter > 1) {
+                const $previousLetter = $currentWordAttemp.querySelector(`#letter-${nWordAttemp}-${nLetter-1}`);
+                $previousLetter.innerText = "";
+                nLetter--;
+            }
+        }
+        else {
+            if (nLetter < 6) {
+                $currentLetter.innerText = key;
+                nLetter++;
+            }
+        }
+    }
+
+    function checkWord() {
+        const $currentInputLetters = document.querySelectorAll(`#word-attemp-${nWordAttemp} letter`);
+        
+        $currentInputLetters.forEach(($letter, index) => {
+            const letter = $letter.innerText;
+            const $keyboardLetter = $keyboard.querySelector(`#key-${letter.toLowerCase()}`);
+
+            $keyboardLetter.classList.remove('key-hit','key-semi-hit','key-fail');
+
+            if (letter === lettersInWord[index]) {
+                // Hit - Green
+                $letter.classList.add("input-hit");
+                $keyboardLetter.classList.add("key-hit");
+            }
+            else if (lettersInWord.includes(letter)) {
+                // Hit in different postion - Yellow
+                $letter.classList.add("input-semi-hit");
+                $keyboardLetter.classList.add("key-semi-hit");
+            }
+            else {
+                // Fai - Grey
+                $letter.classList.add("input-fail");
+                $keyboardLetter.classList.add("key-fail");
+            }
+        });
+
+        hasCompletedGame();
+    }
+
+    function hasCompletedGame() {
+        const $currentWordAttemp = document.querySelector(`#word-attemp-${nWordAttemp}`)
+        const $currentInputLetters = $currentWordAttemp.querySelectorAll(`.input-hit`);
+        
+        if ($currentInputLetters.length === 5){
+            alert("Win!!");
+            initGame();
+            return;
+        }
+
+        if (nWordAttemp === 6)
+        {
+            alert("Fail!! - Try again");
+            initGame();
+            return;
+        }
+
+        // We still trying in the next attemp
+        nLetter = 1;
+        nWordAttemp++;
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+</script>
 </html>
