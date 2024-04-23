@@ -349,15 +349,21 @@
         const $currentInputLetters = $currentWordAttemp.querySelectorAll(`.input-hit`);
         
         if ($currentInputLetters.length === 5){
-            alert("Win!!");
-            initGame();
+            setTimeout(function() { 
+                alert('Win!!');
+                initGame(); 
+            }, 1);
+            
             return;
         }
 
         if (nWordAttemp === 6)
         {
-            alert("Fail!! - Try again");
-            initGame();
+            setTimeout(function() { 
+                alert("Fail!! - Try again");
+                initGame(); 
+            }, 1);
+            
             return;
         }
 
