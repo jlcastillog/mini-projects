@@ -317,25 +317,28 @@
 
     function checkWord() {
         const $currentInputLetters = document.querySelectorAll(`#word-attemp-${nWordAttemp} letter`);
-        
+        let okLetters = [];
+
         $currentInputLetters.forEach(($letter, index) => {
             const letter = $letter.innerText;
             const $keyboardLetter = $keyboard.querySelector(`#key-${letter.toLowerCase()}`);
-
-            $keyboardLetter.classList.remove('key-hit','key-semi-hit','key-fail');
 
             if (letter === lettersInWord[index]) {
                 // Hit - Green
                 $letter.classList.add("input-hit");
                 $keyboardLetter.classList.add("key-hit");
+                okLetters.push(letter);
             }
             else if (lettersInWord.includes(letter)) {
                 // Hit in different postion - Yellow
                 $letter.classList.add("input-semi-hit");
-                $keyboardLetter.classList.add("key-semi-hit");
+                
+                if (!okLetters.includes(letter)){
+                    $keyboardLetter.classList.add("key-semi-hit");
+                }
             }
             else {
-                // Fai - Grey
+                // Fail - Grey
                 $letter.classList.add("input-fail");
                 $keyboardLetter.classList.add("key-fail");
             }
