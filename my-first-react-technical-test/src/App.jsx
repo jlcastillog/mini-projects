@@ -1,20 +1,14 @@
 import "./App.css";
-import responseUsers from "./mocks/responseUsers.json";
 import { UserCard } from "./components/UserCard";
+import { getUser } from "./services/userService";
+import { useEffect, useState } from "react";
 
 function App() {
-  const firstUser = responseUsers.users[0];
+  const [user, setUser] = useState([]);
 
-  const userMapped = (user) => {
-    console.log(user);
-    return {
-      name: `${user.firstName} ${user.lastName}`,
-      userName: user.username,
-      urlImage: user.image,
-    };
-  };
-
-  const user = userMapped(firstUser);
+  useEffect(() => {
+    getUser().then(newUser => setUser(newUser));
+  }, []);
 
   return (
     <div className="page">
