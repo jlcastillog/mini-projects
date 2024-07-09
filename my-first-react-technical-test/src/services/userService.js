@@ -5,6 +5,7 @@ export const getUser = async () => {
 
     const users = json.users;
     const mappedUsers = users?.map((user) => ({
+      id: user.id,
       name: `${user.firstName} ${user.lastName}`,
       userName: user.username,
       urlImage: user.image,

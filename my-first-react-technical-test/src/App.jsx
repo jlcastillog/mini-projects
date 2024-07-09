@@ -1,15 +1,9 @@
 import "./App.css";
 import { UserCard } from "./components/UserCard";
-import { getUser } from "./services/userService";
-import { useEffect, useState } from "react";
+import { useUsers } from "./hooks/users";
 
 function App() {
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    getUser().then(newUser => setUser(newUser));
-  }, []);
-
+  const { user } = useUsers();
   return (
     <div className="page">
       <header>
