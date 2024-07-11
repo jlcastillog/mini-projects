@@ -1,6 +1,6 @@
 import "./App.css";
 import { UserCard } from "./components/UserCard";
-import {Posts} from "./components/Posts"
+import { Posts } from "./components/Posts";
 import { useUsers } from "./hooks/users";
 import { useState, useEffect } from "react";
 import { getPosts } from "./services/postService";
@@ -10,8 +10,9 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    getPosts().then((postsResponse) => {
-      const newPosts = postsResponse.filter((post) => post.id === user.id)
+    const userId = user.id;
+    if (userId === undefined) return;
+    getPosts(userId).then((newPosts) => {
       setPosts(newPosts);
     });
   }, [user]);
