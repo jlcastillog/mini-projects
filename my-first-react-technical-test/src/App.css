@@ -16,6 +16,7 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .userInfo {
@@ -47,3 +48,18 @@ main {
   width: 100%;
 }
 
+.posts {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  min-width: 300px;
+  min-height: 100px;
+  width: 500px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.posts ul {
+  list-style-type: none;
+  padding: 20px;
+}
