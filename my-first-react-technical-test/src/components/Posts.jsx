@@ -1,4 +1,5 @@
 export function Posts({ posts }) {
+    
     return (
       <section className="posts">
         <ul>

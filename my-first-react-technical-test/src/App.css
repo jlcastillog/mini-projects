@@ -10,65 +10,11 @@
   width: 100%;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 40px;
-  margin-top: 20px;
-}
-
-.userInfo {
-  display: flex;
-  gap: 20px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
-.userInfo_image {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.userInfo_image img{
-  width: 100px;
-  height: 100px;
-}
-
-.userInfo_description {
-  padding-right: 10px;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.posts {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-  min-width: 300px;
-  min-height: 100px;
-  width: 500px;
-}
-
-.posts ul {
+.page ul{
   list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-items: center;
-  gap: 20px;
 }
 
-.post {
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 20px;
+.page li{
+  margin-bottom: 20px;
 }
+

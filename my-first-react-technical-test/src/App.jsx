@@ -1,30 +1,21 @@
 import "./App.css";
 import { UserCard } from "./components/UserCard";
 import { Posts } from "./components/Posts";
-import { useUsers } from "./hooks/users";
-import { useState, useEffect } from "react";
-import { getPosts } from "./services/postService";
+import { UserPostCard } from "./components/UserPostCard";
+import { useUserPosts } from "./hooks/userPosts";
 
 function App() {
-  const { user } = useUsers();
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const userId = user.id;
-    if (userId === undefined) return;
-    getPosts(userId).then((newPosts) => {
-      setPosts(newPosts);
-    });
-  }, [user]);
+  const { user, posts } = useUserPosts();
 
   return (
     <div className="page">
-      <header>
-        <UserCard user={user} />
-      </header>
-      <main>
-        <Posts posts={posts} />
-      </main>
+      <ul>
+        {posts.map((post) => (
+          <li className="post" key={post.id}>
+            <UserPostCard user={user} post={post}></UserPostCard>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

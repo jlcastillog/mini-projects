@@ -10,6 +10,8 @@ export const getPosts = async (id) => {
       id: post.id,
       title: post.title,
       description: post.body,
+      likes: post.reactions?.likes,
+      dislikes: post.reactions?.dislikes
     }));
     return mappedPosts;
   } catch (e) {
