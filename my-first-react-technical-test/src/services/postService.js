@@ -1,8 +1,8 @@
+import { URL_POSTS } from "../constants";
+
 export const getPosts = async (id) => {
   try {
-    const response = await fetch(
-      `https://dummyjson.com/posts/user/${id}?limit=100`
-    );
+    const response = await fetch(`${URL_POSTS}/user/${id}?limit=100`);
     const json = await response.json();
 
     const posts = json.posts;
@@ -11,7 +11,7 @@ export const getPosts = async (id) => {
       title: post.title,
       description: post.body,
       likes: post.reactions?.likes,
-      dislikes: post.reactions?.dislikes
+      dislikes: post.reactions?.dislikes,
     }));
     return mappedPosts;
   } catch (e) {

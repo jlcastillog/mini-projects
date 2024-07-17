@@ -1,14 +1,14 @@
 import "./App.css";
-import { UserCard } from "./components/UserCard";
-import { Posts } from "./components/Posts";
 import { UserPostCard } from "./components/UserPostCard";
 import { useUserPosts } from "./hooks/userPosts";
 
 function App() {
   const { user, posts } = useUserPosts();
+  const hasPosts = posts.length > 0
 
   return (
     <div className="page">
+      {hasPosts === false && <UserPostCard user={user}></UserPostCard>}
       <ul>
         {posts.map((post) => (
           <li className="post" key={post.id}>

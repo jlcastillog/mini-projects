@@ -1,6 +1,8 @@
+import { URL_USERS } from "../constants";
+
 export const getUser = async () => {
   try {
-    const response = await fetch("https://dummyjson.com/users");
+    const response = await fetch(URL_USERS);
     const json = await response.json();
 
     const users = json.users;
